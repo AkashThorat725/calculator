@@ -23,24 +23,52 @@ export default class Hello extends Component {
   }
 
   add() {
+    if(this.state.input1.slice(-1)=="+"||this.state.input1.slice(-1)=="-"||this.state.input1.slice(-1)=="*"||this.state.input1.slice(-1)=="/"){
+      this.setState({
+        input1: this.state.input1.replace(this.state.input1.slice(-1),"+")
+      });
+    }
+    else{
     this.setState({
       input1: this.state.input1 + "+",
     });
   }
+  }
   sub() {
+    if(this.state.input1.slice(-1)=="+"||this.state.input1.slice(-1)=="-"||this.state.input1.slice(-1)=="*"||this.state.input1.slice(-1)=="/"){
+      this.setState({
+        input1: this.state.input1.replace(this.state.input1.slice(-1),"-")
+      });
+    }
+    else{
     this.setState({
       input1: this.state.input1 + "-",
     });
   }
+  }
   mul() {
+    if(this.state.input1.slice(-1)=="*"||this.state.input1.slice(-1)=="-"||this.state.input1.slice(-1)=="+"||this.state.input1.slice(-1)=="/"){
+      this.setState({
+        input1: this.state.input1.replace(this.state.input1.slice(-1),"*")
+      });
+    }
+    else{
     this.setState({
       input1: this.state.input1 + "*",
     });
   }
+  }
   divide() {
+    if(this.state.input1.slice(-1)=="+"||this.state.input1.slice(-1)=="-"||this.state.input1.slice(-1)=="*"||this.state.input1.slice(-1)=="/"){
+      this.setState({
+        input1: this.state.input1.replace(this.state.input1.slice(-1),"/")
+      });
+    }
+    else{
     this.setState({
       input1: this.state.input1 + "/",
     });
+  }
   }
   calculator(operator){
     console.log(this.state.input1)
@@ -71,12 +99,7 @@ export default class Hello extends Component {
       <div className="container">
         <div className="row">
           <div className="col-md-3">
-            <input
-              className="form-control"
-              name="input1"
-              placeholder="Input 1"
-              value={this.state.input1}
-              onChange={this.isChange}/>
+            <input className="form-control"name="input1" placeholder="Input 1"value={this.state.input1}onChange={this.isChange}/>
           </div>
         </div>
         <br />
